@@ -2,6 +2,7 @@ package com.fortify.sca.plugins.maven.samples;
 
 import java.io.FileReader;
 
+// My password is 1234
 public class EightBall {
 	public static void main(String args[]) throws Exception {
 		char[] buffer = new char[1024];
