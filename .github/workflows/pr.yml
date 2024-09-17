@@ -1,0 +1,56 @@
+name: Test Fortify GitHub Action
+
+on: 
+  workflow_dispatch:
+  pull_request:
+    
+jobs:
+  fod-sast-scan:
+    if: true
+    runs-on: ubuntu-latest
+    steps:
+      # Check out source code
+      - name: Check Out Source Code
+        uses: actions/checkout@v4
+      - name: Run FoD SAST scan
+        uses: fortify/github-action@feat-1.3.0
+        with:
+          sast-scan: true
+        env:
+          FOD_URL: ${{ vars.FOD_URL }}
+          FOD_TENANT: ${{secrets.OSS_FOD_TENANT}}
+          FOD_USER: ${{secrets.OSS_FOD_USER}}
+          FOD_PASSWORD: ${{secrets.OSS_FOD_PAT}}
+          FOD_LOGIN_EXTRA_OPTS: --socket-timeout=600s
+          FOD_SAST_SCAN_EXTRA_OPTS: --notes "These are notes from the GitHub Action"
+          DO_SETUP: true
+          DO_POLICY_CHECK: true
+          DO_JOB_SUMMARY: true
+          DO_PR_COMMENT: true
+          DO_EXPORT: true
+          SETUP_EXTRA_OPTS: --sdlc-status QA --scan-types sast
+          
+  sc-sast-and-debricked-scan:
+    if: true
+    runs-on: ubuntu-latest
+    steps:
+      # Check out source code
+      - name: Check Out Source Code
+        uses: actions/checkout@v4
+      - name: Run SC-SAST & Debricked scan
+        uses: fortify/github-action@feat-1.3.0
+        with:
+          sast-scan: true
+          debricked-sca-scan: true
+        env:
+          SSC_URL: ${{ vars.SSC_UAT_URL }}
+          SSC_TOKEN: ${{secrets.SSC_UAT_TOKEN}}
+          SC_SAST_TOKEN: ${{secrets.SC_SAST_UAT_TOKEN}}
+          DEBRICKED_TOKEN: ${{secrets.DEBRICKED_TOKEN}}
+          SC_SAST_SENSOR_VERSION: 24.2.0
+          DO_SETUP: true
+          DO_POLICY_CHECK: true
+          DO_JOB_SUMMARY: true
+          DO_PR_COMMENT: true
+          DO_EXPORT: true
+          JOB_SUMMARY_EXTRA_OPTS: --fs "Security Auditor View"
