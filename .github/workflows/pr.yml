@@ -54,3 +54,4 @@ jobs:
           DO_PR_COMMENT: true
           DO_EXPORT: true
           JOB_SUMMARY_EXTRA_OPTS: --fs "Security Auditor View"
+          SETUP_EXTRA_OPTS: --issue-template "Prioritized High Risk Issue Template"
