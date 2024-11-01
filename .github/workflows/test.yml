@@ -6,17 +6,6 @@ on:
     branches: [master]
     
 jobs:
-  x:
-    runs-on: ubuntu-latest
-    env:
-        SETUP_EXTRA_OPTS: --a --b
-    steps:
-      - run: |
-          echo "SETUP_EXTRA_OPTS='--oss $SETUP_EXTRA_OPTS'" >> $GITHUB_ENV
-        shell: bash
-      - run: |
-          echo "Hi"
-        shell: bash
   fod-sast-scan:
     if: true
     strategy:
