@@ -30,4 +30,4 @@ steps:
   - check:
       policy:
         display-name: Pass based on --pass parameter
-        pass.if:      ${parameters.pass}
+        pass.if:      ${cli.pass}
