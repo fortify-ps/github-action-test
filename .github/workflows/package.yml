@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Package Code + Dependencies
-        uses: fortify/github-action/package@main
+        uses: fortify/github-action/package@v2
         env:
           PACKAGE_OPTS: "-bt mvn"
           DO_PACKAGE_DEBUG: ${{matrix.package_debug}}
