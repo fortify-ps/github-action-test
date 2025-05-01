@@ -15,12 +15,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:    
       - name: Setup SC Client
-        uses: fortify/github-action/setup@ghes-workaround
+        uses: fortify/github-action/setup@dev/v2.x
         with:
           sc-client: action-default
       - run: scancentral -version
       - name: Setup SC Client
-        uses: fortify/github-action/setup@ghes-workaround
+        uses: fortify/github-action/setup@dev/v2.x
         with:
           sc-client: action-default
         env:
