@@ -78,7 +78,7 @@ jobs:
           SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
           SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
           SSC_APPVERSION: GitHub:EightBall
-          SC_SAST_SENSOR_VERSION: 23.2.0
+          SC_SAST_SENSOR_VERSION: 25.2.0
           DO_EXPORT: true
           DO_JOB_SUMMARY: true
           SETUP_EXTRA_OPTS: --issue-template "Prioritized High Risk Issue Template"
@@ -105,7 +105,7 @@ jobs:
           SSC_USER: ${{secrets.FH_DEMO_SSC_USER}}
           SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
           SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
-          SC_SAST_SENSOR_VERSION: 23.2.0
+          SC_SAST_SENSOR_VERSION: 25.2.0
           DO_SETUP: true
           DO_POLICY_CHECK: true
           DO_JOB_SUMMARY: true
@@ -138,7 +138,7 @@ jobs:
           SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
           SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
           DEBRICKED_TOKEN: ${{secrets.DEBRICKED_TOKEN}}
-          SC_SAST_SENSOR_VERSION: 24.2.0
+          SC_SAST_SENSOR_VERSION: 25.2.0
           DO_SETUP: true
           DO_POLICY_CHECK: true
           DO_JOB_SUMMARY: true
