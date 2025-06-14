@@ -50,8 +50,10 @@ jobs:
       - name: Run SC-SAST & Debricked scan
         uses: fortify/github-action/ssc-export@main
         env:
-          SSC_URL: ${{ vars.SSC_UAT_URL }}
-          SSC_TOKEN: ${{secrets.SSC_UAT_TOKEN}}
+          SSC_URL: ${{ vars.FH_DEMO_SSC_URL }}
+          SSC_USER: ${{secrets.FH_DEMO_SSC_USER}}
+          SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
+          SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
           SSC_APPVERSION: GitHub:EightBall
           EXPORT_EXTRA_OPTS: --fs "Quick View"
  
@@ -71,10 +73,11 @@ jobs:
         with:
           sast-scan: true
         env:
-          SSC_URL: ${{ vars.SSC_UAT_URL }}
-          SSC_TOKEN: ${{secrets.SSC_UAT_TOKEN}}
+          SSC_URL: ${{ vars.FH_DEMO_SSC_URL }}
+          SSC_USER: ${{secrets.FH_DEMO_SSC_USER}}
+          SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
+          SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
           SSC_APPVERSION: GitHub:EightBall
-          SC_SAST_TOKEN: ${{secrets.SC_SAST_UAT_TOKEN}}
           SC_SAST_SENSOR_VERSION: 23.2.0
           DO_EXPORT: true
           DO_JOB_SUMMARY: true
@@ -98,9 +101,10 @@ jobs:
           sast-scan: true
           debricked-sca-scan: false
         env:
-          SSC_URL: ${{ vars.SSC_UAT_URL }}
-          SSC_TOKEN: ${{secrets.SSC_UAT_TOKEN}}
-          SC_SAST_TOKEN: ${{secrets.SC_SAST_UAT_TOKEN}}
+          SSC_URL: ${{ vars.FH_DEMO_SSC_URL }}
+          SSC_USER: ${{secrets.FH_DEMO_SSC_USER}}
+          SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
+          SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
           SC_SAST_SENSOR_VERSION: 23.2.0
           DO_SETUP: true
           DO_POLICY_CHECK: true
@@ -129,9 +133,10 @@ jobs:
           sast-scan: true
           debricked-sca-scan: true
         env:
-          SSC_URL: ${{ vars.SSC_UAT_URL }}
-          SSC_TOKEN: ${{secrets.SSC_UAT_TOKEN}}
-          SC_SAST_TOKEN: ${{secrets.SC_SAST_UAT_TOKEN}}
+          SSC_URL: ${{ vars.FH_DEMO_SSC_URL }}
+          SSC_USER: ${{secrets.FH_DEMO_SSC_USER}}
+          SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
+          SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
           DEBRICKED_TOKEN: ${{secrets.DEBRICKED_TOKEN}}
           SC_SAST_SENSOR_VERSION: 24.2.0
           DO_SETUP: true
@@ -160,8 +165,9 @@ jobs:
           sast-scan: false
           debricked-sca-scan: true
         env:
-          SSC_URL: ${{ vars.SSC_UAT_URL }}
-          SSC_TOKEN: ${{secrets.SSC_UAT_TOKEN}}
+          SSC_URL: ${{ vars.FH_DEMO_SSC_URL }}
+          SSC_USER: ${{secrets.FH_DEMO_SSC_USER}}
+          SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
           SSC_APPVERSION: GitHub:EightBall
           DEBRICKED_TOKEN: ${{secrets.DEBRICKED_TOKEN}}
           DO_WAIT: false
