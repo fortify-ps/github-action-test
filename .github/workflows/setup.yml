@@ -27,6 +27,6 @@ jobs:
           fcli: v3
         env:
           FCLI_URL: ${{ matrix.fcli_url }}
-      - run: ls -laR ${RUNNER_TOOL_CACHE} | fgrep 'fcli'
-  
-  
+      - name: Verify fcli installation
+        run: ls -laR ${RUNNER_TOOL_CACHE}/fcli ; ls -laR ${RUNNER_TOOL_CACHE}/sc-client
+        shell: bash
