@@ -11,20 +11,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-linux.tgz
+          - os: windows-latest
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-windows.zip
+          - os: macos-latest
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-mac.tgz
     runs-on: ${{ matrix.os }}
     steps:    
-      - name: Setup SC Client
-        uses: fortify/github-action/setup@main
+      - name: Setup fcli & sc-client
+        uses: fortify/github-action/setup@feat/fcli-ci
         with:
-          sc-client: action-default
-      - run: scancentral -version
-      - name: Setup SC Client
-        uses: fortify/github-action/setup@main
-        with:
-          sc-client: action-default
+          sc-client: latest
+          fcli: v3
         env:
-          SC_CLIENT_VERSION: 23.2
-      - run: scancentral -version
+          FCLI_URL: ${{ matrix.fcli_url }}
+      - run: ls -laR ${RUNNER_TOOL_CACHE} | fgrep 'fcli'
   
   
