@@ -24,7 +24,7 @@ jobs:
         uses: fortify/github-action/setup@feat/fcli-ci
         with:
           sc-client: latest
-          fcli: v3
+          fcli: 4.5
         env:
           FCLI_URL: ${{ matrix.fcli_url }}
       - name: Verify fcli installation
