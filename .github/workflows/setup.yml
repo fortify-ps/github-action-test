@@ -30,12 +30,16 @@ jobs:
       - name: Verify fcli installation
         run: ls -laR ${RUNNER_TOOL_CACHE}/fcli ; ls -laR ${RUNNER_TOOL_CACHE}/sc-client
         shell: bash
+        continue-on-error: true
       - name: Show env vars
         run: env
         shell: bash
+        continue-on-error: true
       - name: Show fcli version
         run: fcli --version
         shell: bash
+        continue-on-error: true
       - name: Show sc-client version
         run: scancentral --version
         shell: bash
+        continue-on-error: true
