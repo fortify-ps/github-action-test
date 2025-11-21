@@ -28,18 +28,22 @@ jobs:
         env:
           FCLI_URL: ${{ matrix.fcli_url }}
       - name: Verify fcli installation
+        if: always()
         run: ls -laR ${RUNNER_TOOL_CACHE}/fcli ; ls -laR ${RUNNER_TOOL_CACHE}/sc-client
         shell: bash
-        continue-on-error: true
       - name: Show env vars
+        if: always()
         run: env
         shell: bash
-        continue-on-error: true
       - name: Show fcli version
+        if: always()
         run: fcli --version
         shell: bash
-        continue-on-error: true
       - name: Show sc-client version
+        if: always()
         run: scancentral --version
         shell: bash
-        continue-on-error: true
+      - name: Run sc-client through fcli
+        if: always()
+        run: fcli tool sc-client run -- --version
+        shell: bash
