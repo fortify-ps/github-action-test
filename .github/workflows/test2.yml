@@ -26,6 +26,8 @@ jobs:
         uses: fortify/github-action/setup@feat/fcli-ci
         env:
           FCLI_URL: ${{ matrix.fcli_url }}
+        with:
+          sc-client: auto
       - name: Run SSC CI Test
         shell: bash
         run: |
