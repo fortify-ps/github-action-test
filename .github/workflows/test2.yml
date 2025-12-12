@@ -23,9 +23,15 @@ jobs:
       - name: Check Out Source Code
         uses: actions/checkout@v4
       - name: Setup fcli & sc-client
-        uses: fortify/github-action@feat/fcli-ci
+        uses: fortify/github-action/setup@feat/fcli-ci
         env:
           FCLI_URL: ${{ matrix.fcli_url }}
+      - name: Run SSC CI Test
+        shell: bash
+        run: |
+          ~/.fortify/fcli/bootstrapped/bin/fcli --version
+          ~/.fortify/fcli/bootstrapped/bin/fcli action run ci
+        env:
           SSC_URL: ${{ vars.FH_DEMO_SSC_URL }}
           SSC_USER: ${{secrets.FH_DEMO_SSC_USER}}
           SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
