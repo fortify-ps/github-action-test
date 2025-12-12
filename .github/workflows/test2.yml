@@ -27,7 +27,7 @@ jobs:
         env:
           FCLI_URL: ${{ matrix.fcli_url }}
         with:
-          sc-client: auto
+          sc-client: 25.2
       - name: Run SSC CI Test
         shell: bash
         run: |
@@ -39,3 +39,4 @@ jobs:
           SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
           SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
           SSC_APPVERSION: GitHub:EightBall
+          PREINSTALLED: true
