@@ -1,0 +1,33 @@
+name: test2.yml
+
+on: 
+  workflow_dispatch:
+  push:
+    branches: [master]
+    
+jobs:
+  ssc-ci-test:
+    if: true
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-linux.tgz
+          - os: windows-latest
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-windows.zip
+          - os: macos-latest
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-mac.tgz
+    runs-on: ${{ matrix.os }}
+    steps:    
+      - name: Check Out Source Code
+        uses: actions/checkout@v4
+      - name: Setup fcli & sc-client
+        uses: fortify/github-action@feat/fcli-ci
+        env:
+          FCLI_URL: ${{ matrix.fcli_url }}
+          SSC_URL: ${{ vars.FH_DEMO_SSC_URL }}
+          SSC_USER: ${{secrets.FH_DEMO_SSC_USER}}
+          SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
+          SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
+          SSC_APPVERSION: GitHub:EightBall
