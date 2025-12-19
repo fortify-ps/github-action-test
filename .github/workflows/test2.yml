@@ -28,3 +28,4 @@ jobs:
           SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
           SSC_APPVERSION: GitHub:EightBall
           SC_CLIENT_VERSION: 25.2
+          SAST_SCAN_EXTRA_OPTS: --no-replace
