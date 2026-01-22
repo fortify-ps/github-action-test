@@ -13,11 +13,11 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-linux.tgz
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_refactor.ci-rest-helpers/fcli-linux.tgz
           - os: windows-latest
-            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-windows.zip
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_refactor.ci-rest-helpers/fcli-windows.zip
           - os: macos-latest
-            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-mac.tgz
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_refactor.ci-rest-helpers/fcli-mac.tgz
     runs-on: ${{ matrix.os }}
     steps:    
       - name: Check Out Source Code
