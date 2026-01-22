@@ -13,11 +13,8 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-linux.tgz
           - os: windows-latest
-            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-windows.zip
           - os: macos-latest
-            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-mac.tgz
     runs-on: ${{ matrix.os }}
     steps:    
       - name: Setup fcli & sc-client
@@ -25,8 +22,8 @@ jobs:
         with:
           sc-client: latest
           fcli: v3
-        env:
-          FCLI_URL: ${{ matrix.fcli_url }}
+        # env:
+        #  FCLI_URL: ${{ matrix.fcli_url }}
       - name: Verify fcli installation
         if: always()
         run: ls -laR ${RUNNER_TOOL_CACHE}/fcli ; ls -laR ${RUNNER_TOOL_CACHE}/sc-client

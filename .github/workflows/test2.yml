@@ -31,7 +31,7 @@ jobs:
           SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
           SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
           SSC_APPVERSION: GitHub:EightBall
-          SC_CLIENT_VERSION: 25.2
+          SC_CLIENT_VERSION: 25.2.0
           SAST_SCAN_EXTRA_OPTS: --no-replace
           SAST_EXPORT_EXTRA_OPTS: --publish
           DEBRICKED_EXPORT_EXTRA_OPTS: --publish
