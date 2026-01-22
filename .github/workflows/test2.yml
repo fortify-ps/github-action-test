@@ -35,6 +35,3 @@ jobs:
           SSC_APPVERSION: GitHub:EightBall
           SC_CLIENT_VERSION: 25.4
           SAST_SCAN_EXTRA_OPTS: --no-replace
-          SAST_EXPORT_EXTRA_OPTS: "--publish=true"
-          DEBRICKED_EXPORT_EXTRA_OPTS: "--publish=true"
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
