@@ -8,6 +8,8 @@ on:
 jobs:
   ssc-ci-test:
     if: true
+    permissions:
+      security-events: write
     strategy:
       fail-fast: false
       matrix:
@@ -35,3 +37,4 @@ jobs:
           SAST_SCAN_EXTRA_OPTS: --no-replace
           SAST_EXPORT_EXTRA_OPTS: "--publish=true"
           DEBRICKED_EXPORT_EXTRA_OPTS: "--publish=true"
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
