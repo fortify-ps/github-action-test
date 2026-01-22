@@ -13,8 +13,11 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-linux.tgz
           - os: windows-latest
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-windows.zip
           - os: macos-latest
+            fcli_url: https://github.com/fortify/fcli/releases/download/dev_feat.ci-updates/fcli-mac.tgz
     runs-on: ${{ matrix.os }}
     steps:    
       - name: Check Out Source Code
@@ -22,6 +25,7 @@ jobs:
       - name: Run SSC CI Test
         uses: fortify/github-action@feat/fcli-ci
         env:
+          FCLI_URL: ${{ matrix.fcli_url }}
           SSC_URL: ${{ vars.FH_DEMO_SSC_URL }}
           SSC_USER: ${{secrets.FH_DEMO_SSC_USER}}
           SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
@@ -29,3 +33,5 @@ jobs:
           SSC_APPVERSION: GitHub:EightBall
           SC_CLIENT_VERSION: 25.2
           SAST_SCAN_EXTRA_OPTS: --no-replace
+          SAST_EXPORT_EXTRA_OPTS: --publish
+          DEBRICKED_EXPORT_EXTRA_OPTS: --publish
