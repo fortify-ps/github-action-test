@@ -12,7 +12,7 @@ jobs:
     steps:
       # Check out source code
       - name: Check Out Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run FoD SAST scan
         uses: fortify/github-action@v1
         with:
@@ -37,7 +37,7 @@ jobs:
     steps:
       # Check out source code
       - name: Check Out Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run SC-SAST & Debricked scan
         uses: fortify/github-action@v1
         with:

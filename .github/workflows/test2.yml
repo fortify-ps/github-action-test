@@ -23,7 +23,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:    
       - name: Check Out Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run SSC CI Test
         uses: fortify/github-action@feat/fcli-ci
         env:

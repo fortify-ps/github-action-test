@@ -16,7 +16,7 @@ jobs:
     steps:
       # Check out source code
       - name: Check Out Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run FoD SAST scan
         uses: fortify/github-action@main
         with:
@@ -67,7 +67,7 @@ jobs:
     steps:
       # Check out source code
       - name: Check Out Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run SC-SAST scan
         uses: fortify/github-action@main
         with:
@@ -95,7 +95,7 @@ jobs:
     steps:
       # Check out source code
       - name: Check Out Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run SC-SAST & Debricked scan
         uses: fortify/github-action@main
         with:
@@ -128,7 +128,7 @@ jobs:
     steps:
       # Check out source code
       - name: Check Out Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run SC-SAST & Debricked scan
         uses: fortify/github-action@main
         with:
@@ -161,7 +161,7 @@ jobs:
     steps:
       # Check out source code
       - name: Check Out Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run Debricked scan & upload to SSC
         uses: fortify/github-action@main
         with:
@@ -284,7 +284,7 @@ jobs:
     steps:
       # Check out source code
       - name: Check Out Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       
       - name: Setup test 1
         uses: fortify/github-action/setup@main
@@ -352,7 +352,7 @@ jobs:
           echo "FCLI_CMD version: $(${FCLI_CMD} -V)"
               
       - name: Setup Java
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v5
         with:
           java-version: 11
       

@@ -15,7 +15,7 @@ jobs:
     steps:
       # Check out source code
       - name: Check Out Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       
       - name: Package Code + Dependencies
         uses: fortify/github-action/package@main
