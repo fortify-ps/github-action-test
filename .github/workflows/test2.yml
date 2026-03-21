@@ -15,19 +15,15 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            fcli_url: https://github.com/fortify/fcli/releases/download/dev_refactor.ci-rest-helpers/fcli-linux.tgz
           - os: windows-latest
-            fcli_url: https://github.com/fortify/fcli/releases/download/dev_refactor.ci-rest-helpers/fcli-windows.zip
           - os: macos-latest
-            fcli_url: https://github.com/fortify/fcli/releases/download/dev_refactor.ci-rest-helpers/fcli-mac.tgz
     runs-on: ${{ matrix.os }}
     steps:    
       - name: Check Out Source Code
         uses: actions/checkout@v6
       - name: Run SSC CI Test
-        uses: fortify/github-action@feat/fcli-ci
+        uses: fortify/github-action/.github/workflows/with-debug-upload-github.yml@feat/configurable-debug-upload
         env:
-          FCLI_URL: ${{ matrix.fcli_url }}
           SSC_URL: ${{ vars.FH_STAGE_SSC_URL }}
           SSC_USER: ${{secrets.FH_STAGE_SSC_USER}}
           SSC_PASSWORD: ${{secrets.FH_STAGE_SSC_PWD}}
