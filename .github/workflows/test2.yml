@@ -22,7 +22,7 @@ jobs:
       - name: Check Out Source Code
         uses: actions/checkout@v6
       - name: Run SSC CI Test
-        uses: fortify/github-action/.github/workflows/with-debug-upload-github.yml@feat/configurable-debug-upload
+        uses: fortify/github-action/with-debug-upload-github@feat/configurable-debug-upload
         env:
           SSC_URL: ${{ vars.FH_STAGE_SSC_URL }}
           SSC_USER: ${{secrets.FH_STAGE_SSC_USER}}
