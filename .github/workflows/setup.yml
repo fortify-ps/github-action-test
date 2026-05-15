@@ -18,7 +18,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:    
       - name: Setup fcli & sc-client
-        uses: fortify/github-action/setup@feat/fcli-ci
+        uses: fortify/github-action/setup@main
         with:
           sc-client: latest
           fcli: v3
