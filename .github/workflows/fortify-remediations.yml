@@ -45,22 +45,14 @@ jobs:
       # documentation at https://github.com/fortify/github-action#readme for more information on the various
       # configuration options and available sub-actions.
       - name: Run Fortify Scan
-        # Specify Fortify GitHub Action version to run. As per GitHub starter workflow requirements, this example
-        # uses the commit id corresponding to version 1.5.2. It is recommended to check whether any later releases
-        # are available at https://github.com/fortify/github-action/releases. Depending on the amount of stability
-        # required, you may want to consider using fortify/github-action@v1 instead to use the latest 1.x.y version
-        # of this action, allowing your workflows to automatically benefit from any new features and bug fixes.
-        uses: fortify/github-action@dev/v2.x
-        with:
-          sast-scan: true          # Run a SAST scan; if not specified or set to false, no SAST scan will be run
-          debricked-sca-scan: true # For FoD, run an open-source scan as part of the SAST scan (ignored if SAST scan
-                                   # is disabled). For SSC, run a Debricked scan and import results into SSC.
+        uses: fortify/github-action@v3
         env:
           FCLI_BOOTSTRAP_VERSION: dev_feat.v3.x.create-pr-fcli-action
           SSC_URL: ${{ vars.FH_DEMO_SSC_URL }}
           SSC_USER: ${{secrets.FH_DEMO_SSC_USER}}
           SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
           SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
+          SC_SAST_SCAN_EXTRA_OPTS: --no-replace --sargs "'-scan-policy' 'classic'"
           DO_AVIATOR_AUDIT: true
           DO_AVIATOR_REMEDIATIONS: true                    # Enable Aviator remediations for SAST scan, requires SSC 22.1 or later
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}          # GitHub token, required for PR comments and code scanning export
