@@ -48,10 +48,10 @@ jobs:
         uses: fortify/github-action@v3
         env:
           FCLI_BOOTSTRAP_VERSION: dev_feat.v3.x.create-pr-fcli-action
-          SSC_URL: ${{ vars.FH_DEMO_SSC_URL }}
-          SSC_USER: ${{secrets.FH_DEMO_SSC_USER}}
-          SSC_PASSWORD: ${{secrets.FH_DEMO_SSC_PWD}}
-          SC_SAST_TOKEN: ${{secrets.FH_DEMO_SC_SAST_TOKEN}}
+          SSC_URL: ${{ vars.FH_STAGE_SSC_URL }}
+          SSC_USER: ${{secrets.FH_STAGE_SSC_USER}}
+          SSC_PASSWORD: ${{secrets.FH_STAGE_SSC_PWD}}
+          SC_SAST_TOKEN: ${{secrets.FH_STAGE_SC_SAST_TOKEN}}
           SAST_SCAN_EXTRA_OPTS: --no-replace --sargs "'-scan-policy' 'classic'"
           SETUP_EXTRA_OPTS: --issue-template "Prioritized High Risk Issue Template"
           DO_AVIATOR_AUDIT: true
