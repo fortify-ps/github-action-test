@@ -11,7 +11,9 @@ public class EightBall {
 		} catch (Exception e) {
 			System.out.println("Invalid input.");
 		}
-		new FileReader(filename).read(buffer);
+		try (FileReader reader = new FileReader(filename)) {
+			reader.read(buffer);
+		}
 		System.out.println(buffer);
 	}
 }
